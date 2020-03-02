@@ -1,4 +1,5 @@
 ﻿using PEGASUS.COM;
+using PEGASUS.Core;
 using PEGASUS.Protocol.lzru920_u921;
 using System;
 using System.Collections.Generic;
@@ -15,83 +16,43 @@ namespace PEGASUS.Test
 {
     public partial class Form1 : Form
     {
-        IComPort com;
+        PegasusCore core;
         public Form1()
         {
             InitializeComponent();
+            string[] ports = SerialPort.GetPortNames();
+            // Thêm toàn bộ các COM đã tìm được vào combox cbCom
+            cbCom.Items.AddRange(ports);
         }
 
         private void btnTestCom_Click(object sender, EventArgs e)
         {
-            bool check = false;
-            if (com == null)
-            {
-                com = new ComPort(1);
-             //   com.OnComReaderReceived += new ComReaderReceived(this._port_DataReceived);
-                check = com.Init();
-            }
+            string comNameSelected = cbCom.SelectedItem.ToString();
+            string a = comNameSelected.Substring(2);
+            int port = int.Parse(comNameSelected.Substring(3));
+            core = new PegasusCore(new ComPort(port));
+           
+           bool check = core.InitCom();
             if (check)
             {
-                check = com.Connect();
-                if (check)
-                {
-                    MessageBox.Show("OK");
-                }
-                else
-                {
-                    MessageBox.Show("Fail");
-                }
+                MessageBox.Show("Connected");
             }
             else
             {
-                MessageBox.Show("Fail");
+                MessageBox.Show("Disconnected");
             }
         }
 
-        private void _port_DataReceived(string cmd)
-        {
-            try
-            {
-                txt01.Invoke(new Action(() =>
-                            {
-                                txt01.Text = cmd;
-                            }));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
 
 
-        }
 
-       
 
         private void btnTestSend_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (com != null&&com.IsConnected())
-                {
-                    //byte[] sysc = new byte[] { 0xFF, 0xFE, 0xFD, 0xFC };
-                    //byte[] data = new byte[] { 0x01 };
-                    ICommandBase comm = new GetRawDataMode(1);
-                    byte[] datasend = comm.Serialize();
-                    com.SendCommand(datasend);
-                    //com.OnComReaderReceived += new ComReaderReceived(this._port_DataReceived);
-                }
-                else
-                {
-                    MessageBox.Show("Disconnected");
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            core = new PegasusCore(new ComPort(7));
+            core.SendData();
         }
 
-        
+
     }
 }

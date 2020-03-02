@@ -8,12 +8,13 @@ namespace PEGASUS.Protocol.lzru920_u921
 {
     public class GetRawDataMode : CommandBase
     {
-        public GetRawDataMode(int a)//a = 1 => measuring mode : 2 => configuration mode
+        public GetRawDataMode()
         {
+
             Sync = new byte[] { 0xFF, 0xFE, 0xFD, 0xFC };
-            Cmd = BitConverter.GetBytes(CommandId.GETRAWDATAMODE);
+            Cmd = BitConverter.GetBytes(CommandId.SETRAWDATAERRORLOGRESET);
             //Data = new byte[] { 0x01 };
-            Data = BitConverter.GetBytes(a);
+            Data = new byte[0];
             ushort len = (ushort)(Cmd.Length + Data.Length);
             Size = BitConverter.GetBytes(len);
 

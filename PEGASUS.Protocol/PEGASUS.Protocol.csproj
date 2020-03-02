@@ -50,6 +50,7 @@
     <Compile Include="lzru920_u921\ICommandBase.cs" />
     <Compile Include="lzru920_u921\ISerializable.cs" />
     <Compile Include="lzru920_u921\Message.cs" />
+    <Compile Include="lzru920_u921\SetRawDataConfig.cs" />
     <Compile Include="lzru920_u921\SetRawDataErrorLogReset.cs" />
     <Compile Include="lzru920_u921\SetRawDataFrameCounterReset.cs" />
     <Compile Include="lzru920_u921\SetRawDataMode.cs" />

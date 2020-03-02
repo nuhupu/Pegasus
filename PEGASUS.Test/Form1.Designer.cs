@@ -31,6 +31,7 @@
             this.btnTestCom = new System.Windows.Forms.Button();
             this.txt01 = new System.Windows.Forms.TextBox();
             this.btnTextSend = new System.Windows.Forms.Button();
+            this.cbCom = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnTestCom
@@ -60,11 +61,20 @@
             this.btnTextSend.UseVisualStyleBackColor = true;
             this.btnTextSend.Click += new System.EventHandler(this.btnTestSend_Click);
             // 
+            // cbCom
+            // 
+            this.cbCom.FormattingEnabled = true;
+            this.cbCom.Location = new System.Drawing.Point(142, 13);
+            this.cbCom.Name = "cbCom";
+            this.cbCom.Size = new System.Drawing.Size(121, 21);
+            this.cbCom.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cbCom);
             this.Controls.Add(this.txt01);
             this.Controls.Add(this.btnTextSend);
             this.Controls.Add(this.btnTestCom);
@@ -80,6 +90,7 @@
         private System.Windows.Forms.Button btnTestCom;
         private System.Windows.Forms.TextBox txt01;
         private System.Windows.Forms.Button btnTextSend;
+        private System.Windows.Forms.ComboBox cbCom;
     }
 }
 
