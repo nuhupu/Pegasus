@@ -35,5 +35,11 @@ namespace PEGASUS.Protocol.lzru920_u921.Enum
         /// 
         /// </summary>
         public const ushort GETRAWDATACONFIG = 50004;
+        public const ushort SETRAWDATACONFIGSTORE = 50005;
+        public const ushort SETRAWDATACONFIGRESTORE = 50007;
+        public const ushort SETRAWDATAHEARTBEAT = 50012;
+        public const ushort GETRAWDATAHEARTBEAT = 50013;
+        public const ushort SETRAWDATAREDLASER = 50009;
+        public const ushort GETRAWDATAREDLASER = 50010;
     }
 }

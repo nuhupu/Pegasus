@@ -45,15 +45,22 @@
     <Compile Include="lzru920_u921\CommandBase.cs" />
     <Compile Include="lzru920_u921\Enum\CommandId.cs" />
     <Compile Include="lzru920_u921\Footer.cs" />
+    <Compile Include="lzru920_u921\GetRawDataConfig.cs" />
+    <Compile Include="lzru920_u921\GetRawDataHeartBeat.cs" />
     <Compile Include="lzru920_u921\GetRawDataMode.cs" />
+    <Compile Include="lzru920_u921\GetRawDataRedLaser.cs" />
     <Compile Include="lzru920_u921\Header.cs" />
     <Compile Include="lzru920_u921\ICommandBase.cs" />
     <Compile Include="lzru920_u921\ISerializable.cs" />
     <Compile Include="lzru920_u921\Message.cs" />
     <Compile Include="lzru920_u921\SetRawDataConfig.cs" />
+    <Compile Include="lzru920_u921\SetRawDataConfigRestore.cs" />
+    <Compile Include="lzru920_u921\SetRawDataConfigStore.cs" />
     <Compile Include="lzru920_u921\SetRawDataErrorLogReset.cs" />
     <Compile Include="lzru920_u921\SetRawDataFrameCounterReset.cs" />
+    <Compile Include="lzru920_u921\SetRawDataHeartBeat.cs" />
     <Compile Include="lzru920_u921\SetRawDataMode.cs" />
+    <Compile Include="lzru920_u921\SetRawDataRedLaser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

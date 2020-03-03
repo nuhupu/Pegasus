@@ -6,17 +6,17 @@ using System.Text;
 
 namespace PEGASUS.Protocol.lzru920_u921
 {
-    public class GetRawDataMode : CommandBase
+    public class SetRawDataRedLaser : CommandBase
     {
-        public GetRawDataMode(int mode)
+        
+        public SetRawDataRedLaser(int a) // a = 0 -> OFF , a = 1 -> ON
         {
-
             Sync = new byte[] { 0xFF, 0xFE, 0xFD, 0xFC };
-            Cmd = BitConverter.GetBytes(CommandId.SETRAWDATAERRORLOGRESET);
-            Data = BitConverter.GetBytes(mode);
+            Cmd = BitConverter.GetBytes(CommandId.SETRAWDATAREDLASER);
+            //Data = new byte[] { 0x01 };
+            Data = BitConverter.GetBytes(a);
             ushort len = (ushort)(Cmd.Length + Data.Length);
             Size = BitConverter.GetBytes(len);
-
             ushort checksum = calculaChecksum();
             Chk = BitConverter.GetBytes(checksum);
         }

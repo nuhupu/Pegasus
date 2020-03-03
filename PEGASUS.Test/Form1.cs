@@ -49,7 +49,7 @@ namespace PEGASUS.Test
 
         private void btnTestSend_Click(object sender, EventArgs e)
         {
-            core = new PegasusCore(new ComPort(7));
+            core = new PegasusCore(new ComPort(5));
             core.SendData();
         }
 

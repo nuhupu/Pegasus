@@ -6,14 +6,14 @@ using System.Text;
 
 namespace PEGASUS.Protocol.lzru920_u921
 {
-    public class GetRawDataMode : CommandBase
+    public class SetRawDataConfigStore : CommandBase
     {
-        public GetRawDataMode(int mode)
+        public SetRawDataConfigStore() 
         {
-
             Sync = new byte[] { 0xFF, 0xFE, 0xFD, 0xFC };
-            Cmd = BitConverter.GetBytes(CommandId.SETRAWDATAERRORLOGRESET);
-            Data = BitConverter.GetBytes(mode);
+            Cmd = BitConverter.GetBytes(CommandId.SETRAWDATACONFIGSTORE);
+            //Data = new byte[] { 0x01 };
+            Data = new byte[0];
             ushort len = (ushort)(Cmd.Length + Data.Length);
             Size = BitConverter.GetBytes(len);
 

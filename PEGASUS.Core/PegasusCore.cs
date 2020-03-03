@@ -60,7 +60,7 @@ namespace PEGASUS.Core
                 {
                     //byte[] sysc = new byte[] { 0xFF, 0xFE, 0xFD, 0xFC };
                     //byte[] data = new byte[] { 0x01 };
-                    ICommandBase comm = new GetRawDataMode();
+                    ICommandBase comm = new GetRawDataMode(0);
                     byte[] datasend = comm.Serialize();
                     com.SendCommand(datasend);
                    
