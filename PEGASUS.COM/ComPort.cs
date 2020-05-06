@@ -40,7 +40,7 @@ namespace PEGASUS.COM
         /// <param name="namePort"></param>
         /// <param name="baudrate">9600</param>
         /// <param name="delay">10ms</param>
-        public ComPort(int port, int delayTime=10, int baudrate = 921600)
+        public ComPort(int port, int delayTime=10, int baudrate = 57600)
         {
             _delayTime = delayTime;
             namePort = string.Format("COM{0}",port);
@@ -61,8 +61,8 @@ namespace PEGASUS.COM
             _mSerialPort.StopBits = StopBits.One;
             _mSerialPort.Parity = Parity.None;
             _mSerialPort.DataBits = 8;
-            _mSerialPort.ReadBufferSize = 8;
-            _mSerialPort.ReceivedBytesThreshold = 8;
+            //_mSerialPort.ReadBufferSize = 8;
+            //_mSerialPort.ReceivedBytesThreshold = 8;
             _mSerialPort.Handshake = Handshake.None;
             _mSerialPort.DtrEnable = true;
             _mSerialPort.RtsEnable = false;
@@ -233,10 +233,7 @@ namespace PEGASUS.COM
                     {
                         GetDataTag();
                     }
-                }
-                
-
-               
+                }                               
             }
             catch (Exception ex)
             {
@@ -248,13 +245,15 @@ namespace PEGASUS.COM
         {
             byte[] array = new byte[40960];
             int num = 0;
-            int num2 = StaticClassReaderB.ReadActiveModeData(array, ref num, this.frmcomportindex);
-            bool flag = num2 == 0;
+            //int num2 = StaticClassReaderB.ReadActiveModeData(array, ref num, this.frmcomportindex);
+            bool flag = num == 0;
             string result;
+            string text2 = this.ByteArrayToHexString(array);
+           
             if (flag)
             {
                 string text = "";
-                string text2 = this.ByteArrayToHexString(array);
+
                 for (int i = 0; i < num; i++)
                 {
                     text += text2.Substring(i * 2, 2);
@@ -263,6 +262,7 @@ namespace PEGASUS.COM
                 if (flag2)
                 {
                     result = text;
+                    //NLogHelper.Info(text2);
                 }
                 else
                 {

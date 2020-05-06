@@ -32,6 +32,7 @@
             this.txt01 = new System.Windows.Forms.TextBox();
             this.btnTextSend = new System.Windows.Forms.Button();
             this.cbCom = new System.Windows.Forms.ComboBox();
+            this.rTB = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // btnTestCom
@@ -69,11 +70,20 @@
             this.cbCom.Size = new System.Drawing.Size(121, 21);
             this.cbCom.TabIndex = 2;
             // 
+            // rTB
+            // 
+            this.rTB.Location = new System.Drawing.Point(12, 127);
+            this.rTB.Name = "rTB";
+            this.rTB.Size = new System.Drawing.Size(776, 311);
+            this.rTB.TabIndex = 3;
+            this.rTB.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.rTB);
             this.Controls.Add(this.cbCom);
             this.Controls.Add(this.txt01);
             this.Controls.Add(this.btnTextSend);
@@ -91,6 +101,7 @@
         private System.Windows.Forms.TextBox txt01;
         private System.Windows.Forms.Button btnTextSend;
         private System.Windows.Forms.ComboBox cbCom;
+        private System.Windows.Forms.RichTextBox rTB;
     }
 }
 

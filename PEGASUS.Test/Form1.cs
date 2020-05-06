@@ -27,8 +27,9 @@ namespace PEGASUS.Test
 
         private void btnTestCom_Click(object sender, EventArgs e)
         {
+            
             string comNameSelected = cbCom.SelectedItem.ToString();
-            string a = comNameSelected.Substring(2);
+            string a = comNameSelected.Substring(3);
             int port = int.Parse(comNameSelected.Substring(3));
             core = new PegasusCore(new ComPort(port));
            
